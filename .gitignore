@@ -12,3 +12,4 @@ npm-debug.logx
 yarn-error.log
 .idea/
 docker/data/*
+.editorconfig
