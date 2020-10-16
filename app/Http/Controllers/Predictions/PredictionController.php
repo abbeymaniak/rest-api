@@ -37,7 +37,7 @@ class PredictionController extends Controller
         try {
             $data = $this->predictionService->index();
             Log::info('Prediction records requested successfully');
-        } catch (\Exception $exception) {
+        } catch (\Throwable $exception) {
             report($exception);
             throw new HttpException(500, $exception->getMessage());
         }
@@ -55,7 +55,7 @@ class PredictionController extends Controller
         try {
             $prediction = $this->predictionService->create($request);
             Log::info('New prediction record created successfully', ['prediction' => $prediction]);
-        } catch (\Exception $exception) {
+        } catch (\Throwable $exception) {
             report($exception);
             throw new HttpException(500, $exception->getMessage());
         }
@@ -74,7 +74,7 @@ class PredictionController extends Controller
         try {
             $this->predictionService->updateStatus($request, $prediction->id);
             Log::info('Prediction status updated successfully', ['prediction' => $prediction]);
-        } catch (\Exception $exception) {
+        } catch (\Throwable $exception) {
             report($exception);
             throw new HttpException(500, $exception->getMessage());
         }
